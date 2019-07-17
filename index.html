@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>monte_carlo_simulation</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color: rgb(251,209,185);">
+    <div class="article-clean" style="background-color: #fbd1b9;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center" style="font-family: Roboto, sans-serif;"><strong>Monte Carlo
+                                Simulations</strong></h1>
+                        <p class="text-center" style="font-family: Roboto, sans-serif;"><span class="by">by</span> <a
+                                href="#">Feroze</a><span class="date">July 12th, 2019</span></p>
+                    </div>
+                    <div class="text">
+                        <p style="font-family: Roboto, sans-serif;">The concept of the Monte Carlo simulation originated
+                            from Polish-American mathematician <a
+                                href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Stanislaw Ulam</a>, who, apart from
+                            his love of thermonuclear weapons, was a big fan
+                            of solitaire. He spent a lot of time playing the game while recovering from an illness, and
+                            sought a way to predict his chance of winning using combinatorics. Despite being an
+                            incredible mathematician, he failed to do so.&nbsp;</p>
+                        <p style="font-family: Roboto, sans-serif;">Ulam then supposed that instead of calculating a
+                            probability, he would just try playing a few hands, count the number of hands he won, then
+                            divide by the number of games played. He realized, however, that it might take him a very
+                            long time to win even a single game, so he turned to his friend <a
+                                href="https://en.wikipedia.org/wiki/John_von_Neumann">John von Neumann</a>&nbsp;to help
+                            him <em>simulate </em>them instead. von Neumann used his new <a
+                                href="https://en.wikipedia.org/wiki/ENIAC">ENIAC</a>&nbsp;to
+                            simulate multiple games of solitaire within a few hours of computation, a task that would
+                            take microseconds today.</p>
+                        <p style="font-family: Roboto, sans-serif;">Formally, the Monte Carlo simulation is a method of
+                            estimating the value of an unknown quantity using the principles of inferential statistics.
+                            It involves making predictions about a <em>population</em>, or a set of examples,
+                            using information about a <em>sample, </em>or a proper subset of the population. In the
+                            solitaire example, the population is the set of all possible games of solitaire - a very
+                            large set - and the sample is the set of simulated
+                            games done by the computer. The key fact that Monte Carlo simulations rely upon is that if
+                            one chooses a sample at random, it tends to exhibit the same properties as the population
+                            from which it is drawn.</p>
+                        <p style="font-family: Roboto, sans-serif;">There are many applications to the Monte Carlo
+                            simulation, belonging to fields like <a
+                                href="https://en.wikipedia.org/wiki/Bayesian_inference_in_phylogeny">computational
+                                biology</a>, <a href="https://en.wikipedia.org/wiki/Direct_simulation_Monte_Carlo">fluid
+                                dynamics</a>,
+                            and even <a href="https://en.wikipedia.org/wiki/Path_tracing">computer
+                                graphics</a>.&nbsp;The following section visualizes an example of using a simulation to
+                            estimate the value of pi.</p>
+                        <h2 style="font-family: Roboto, sans-serif;">Estimation of Pi using a Monte Carlo Simulation
+                        </h2>
+                        <p style="font-family: Roboto, sans-serif;">One can estimate pi using something as simple as a
+                            dartboard; shoot darts at a square board, and the number of darts that land within 1 unit
+                            from the origin (or in a circle of radius 1 unit) divided by the number of darts outside
+                            the circle is a simple estimate of the ratio between the area of the circle and that of the
+                            square: pi. Theoretically, with infinite darts, one could determine the exact value of pi.
+                            The interactive example below simulates
+                            the throwing of many darts and the resulting estimate of pi.</p>
+                    </div>
+                    <div id="chart" class="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="monte-carlo.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
