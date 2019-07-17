@@ -49,12 +49,17 @@ var estimates = [];
 var width = 400;
 var height = 400;
 
-var margin = { top: 50, right: 20, bottom: 50, left: 20 };
+var margin = { top: 50, right: 20, bottom: 50, left: 30 };
 
 var svgline = d3.select(".svg-container").append("svg")
   .attr("height", height).attr("width", width)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.right + ")");
+  .attr("transform", "translate(" + 0 + "," + margin.right + ")");
+
+  svgline.append("rect")
+  .attr("width", 400)
+  .attr("height", 400)
+  .attr("fill", "white");
 
 var xScale = d3.scaleLinear()
   .range([0, width - margin.left - margin.right]);
@@ -127,6 +132,8 @@ function updateAxis(count) {
 
 
 var svg = d3.select('svg');
+
+
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
@@ -147,7 +154,7 @@ function drawCircle(x, y, size) {
   }
   temp.transition().duration(500).attr("r", 10).transition(250).attr("r", 2);
   var new_estimate = outcircle == 0 ? incircle : (incircle / outcircle);
-  pi_value.text("Current Estimate of pi: " + new_estimate.toFixed(2));
+  pi_value.text("Current Estimate of pi: " + new_estimate.toFixed(3));
   estimates.push(new_estimate);
   //render();
   if (new_estimate > max_estimate) {
@@ -157,7 +164,7 @@ function drawCircle(x, y, size) {
 }
 
 function step() {
-  var coords = [getRandom(0, 400), getRandom(0, 400)];
+  var coords = [getRandom(0, 401), getRandom(0, 401)];
   // console.log(coords);
   drawCircle(coords[0], coords[1], 2);
 }
@@ -168,7 +175,7 @@ add_circle_button.on('click', function () {
 
 var interval;
 start_animation_button.on('click', function () {
-  interval = setInterval(step, 10);
+  interval = setInterval(step, 2);
 });
 
 stop_animation_button.on('click', function() {
