@@ -35,8 +35,16 @@ start_animation_button.text("start simulation");
 var stop_animation_button = d3.select(".button-container").append("button");
 stop_animation_button.text("stop simulation");
 
+var reset_button = d3.select(".button-container").append("button");
+reset_button.text("reset");
+
 var pi_value = d3.select(".button-container").append("p");
-pi_value.text("None yet");
+pi_value.text("Current Estimation of pi: None yet");
+
+var num_steps = d3.select(".button-container").append("p");
+num_steps.text("Number of steps: None yet");
+
+
 
 var center = [200, 200];
 
@@ -155,7 +163,9 @@ function drawCircle(x, y, size) {
   temp.transition().duration(500).attr("r", 10).transition(250).attr("r", 2);
   var new_estimate = outcircle == 0 ? incircle : (incircle / outcircle);
   pi_value.text("Current Estimate of pi: " + new_estimate.toFixed(3));
+  num_steps.text("Number of steps: " + (estimates.length + 1));
   estimates.push(new_estimate);
+  console.log(estimates);
   //render();
   if (new_estimate > max_estimate) {
     max_estimate = new_estimate;
@@ -169,6 +179,21 @@ function step() {
   drawCircle(coords[0], coords[1], 2);
 }
 
+function reset() {
+  d3.selectAll('.click-circle-red').remove();
+  d3.selectAll('.click-circle-blue').remove();
+  d3.selectAll('.path').remove();
+
+  estimates = [];
+  max_estimate = -1;
+  incircle = 0;
+  outcircle = 0;
+  updateAxis(1);
+
+  pi_value.text("Current Estimation of pi: None yet");
+  num_steps.text("Number of steps: None yet");
+}
+
 add_circle_button.on('click', function () {
   step();
 });
@@ -180,4 +205,8 @@ start_animation_button.on('click', function () {
 
 stop_animation_button.on('click', function() {
   clearInterval(interval);
+})
+
+reset_button.on('click', function () {
+  reset();
 })
